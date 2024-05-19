@@ -7,28 +7,42 @@
         border: 1px solid #ccc;
         padding: 1rem;
 
-        .filter-input {
-            padding: 10px 20px;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            outline: none;
-            transition: border-color 0.3s ease;
-            margin-bottom: 1rem;
+        .input-container {
+            position: relative;
+            display: inline-block;
 
-            &[type="number"] {
-                -webkit-appearance: textfield;
-                appearance: textfield;
+            .filter-input {
+                padding: 10px 40px 10px 20px;
+                border: 1px solid #ccc;
+                border-radius: 20px;
+                outline: none;
+                transition: border-color 0.3s ease;
+                margin-bottom: 1rem;
 
-                &::-webkit-inner-spin-button,
-                &::-webkit-outer-spin-button {
-                    -webkit-appearance: none;
+                &[type="number"] {
+                    -webkit-appearance: textfield;
+                    appearance: textfield;
+
+                    &::-webkit-inner-spin-button,
+                    &::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
+                    }
+                }
+
+                &:focus {
+                    border-color: #007BFF;
                 }
             }
 
-            &:focus {
-                border-color: #007BFF;
+            .search-icon {
+                position: absolute;
+                right: 10px;
+                top: 35%;
+                transform: translateY(-50%);
             }
         }
+
+
 
     }
 
@@ -45,7 +59,7 @@
             .accordion-header {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr;
-                cursor: pointer;
+
 
                 h2 {
                     margin: 0;
@@ -60,6 +74,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    cursor: pointer;
 
                     .open-icon {
                         transition: transform 0.3s ease;

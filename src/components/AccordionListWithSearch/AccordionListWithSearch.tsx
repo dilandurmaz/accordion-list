@@ -36,7 +36,7 @@ const AccordionListWithSearch: React.FC = () => {
     };
     getAllUsers();
   }, []);
- 
+
   // Functions used for filtering
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -61,9 +61,10 @@ const AccordionListWithSearch: React.FC = () => {
 
   useEffect(() => {
     const filteredUsers = filterUser.filter(filterUsers);
-    setUsers(filteredUsers);
+    const sortedUsers = filteredUsers.sort((a: User, b: User) => a.id - b.id);
+    setUsers(sortedUsers);
   }, [filter]);
- 
+
   // When you click on the icon, detailed information opens.
   const toggleAccordion = (id: number) => {
     setOpenAccordionId(openAccordionId === id ? null : id);
@@ -90,15 +91,18 @@ const AccordionListWithSearch: React.FC = () => {
   // Function that returns search fields
   const renderInputs = (keys: string[]) => {
     return keys.map((key) => (
-      <input
-        key={key}
-        type={key === "id" ? "number" : "text"}
-        placeholder={`${formatKeyForPlaceholder(key)}`}
-        name={key}
-        value={filter[key] || ""}
-        onChange={handleFilterChange}
-        className="filter-input"
-      />
+      <div className="input-container">
+        <input
+          key={key}
+          type={key === "id" ? "number" : "text"}
+          placeholder={`${formatKeyForPlaceholder(key)}`}
+          name={key}
+          value={filter[key] || ""}
+          onChange={handleFilterChange}
+          className="filter-input"
+        />
+        <IoIosSearch className="search-icon" />
+      </div>
     ));
   };
 
