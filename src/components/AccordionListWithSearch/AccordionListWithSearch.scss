@@ -1,0 +1,92 @@
+.accordion-list-with-search {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: 2rem;
+
+    .accordion-search {
+        border: 1px solid #ccc;
+        padding: 1rem;
+
+        .filter-input {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            margin-bottom: 1rem;
+
+            &[type="number"] {
+                -webkit-appearance: textfield;
+                appearance: textfield;
+
+                &::-webkit-inner-spin-button,
+                &::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                }
+            }
+
+            &:focus {
+                border-color: #007BFF;
+            }
+        }
+
+    }
+
+    .accordion-list {
+        .accordion {
+            padding: 1rem;
+            border: 1px solid #ccc;
+
+            .accordion-title {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+
+            .accordion-header {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                cursor: pointer;
+
+                h2 {
+                    margin: 0;
+                }
+
+                &:hover {
+
+                    color: #007BFF;
+                }
+
+                .accordion-header-right {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .open-icon {
+                        transition: transform 0.3s ease;
+
+                        &.rotated {
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+
+            }
+
+            .accordion-content {
+                height: 0;
+                overflow: hidden;
+                transition: height 0.3s ease;
+
+                &.open {
+                    height: auto;
+                    padding: 1rem;
+                    border: 1px solid #ccc;
+                }
+
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 ## Accordion List Project
 
-This project lists movies and allows users to navigate to the details page by clicking on the movie name in the table.You can search movies by year, title, and IMDb Id. It is built using React.js, SCSS, Redux Thunk, Material UI, and Docker.
+In this project, all users are listed. Users can change the sorting of users, view detailed information by clicking on an icon, and filter for each field separately. The technologies used in the project are ReactJs, TypeScript, SCSS, and Docker.
 
 ### Directory Structure
 
